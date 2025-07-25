@@ -25,7 +25,7 @@ export default function Header() {
             </span>
             <span className="flex items-center">
               <Phone className="w-4 h-4 mr-2" />
-              +222 4525 3647
+              +222 36001192
             </span>
           </div>
           <Button

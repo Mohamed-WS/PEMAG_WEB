@@ -143,10 +143,8 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-semibold text-industrial-navy">Phone</h4>
                     <div className="text-gray-600">
-                      <p>+222 47388997</p>
-                      <p>+222 33204488</p>
-                      <p>+222 32113383</p>
                       <p>+222 36001192</p>
+                      <p>+222 47388997</p>
                     </div>
                   </div>
                 </div>
