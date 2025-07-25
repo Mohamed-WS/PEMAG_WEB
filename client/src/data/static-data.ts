@@ -68,15 +68,15 @@ export const staticServices: Service[] = [
   },
   {
     id: 6,
-    title: "Consultation Services",
-    description: "Expert consultation in petroleum, energy, design, and production covering both the organizational and technical side, alongside and strategic planning.",
+    title: "Artificial Intelligence and IT",
+    description: "Advanced training in artificial intelligence, machine learning, data science, cybersecurity, and modern IT infrastructure for engineering and industrial applications.",
     icon: "lightbulb",
     features: [
-      "Technical Planning",
-      "Strategic Consulting",
-      "Risk Assessment",
-      "Process Optimization",
-      "Strategic Implementation"
+      "Machine Learning & AI Applications",
+      "Data Science & Analytics",
+      "Cybersecurity & Network Security",
+      "Cloud Computing & Infrastructure",
+      "Digital Transformation Technologies"
     ]
   }
 ];
