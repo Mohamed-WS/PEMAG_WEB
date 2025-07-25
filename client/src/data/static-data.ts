@@ -3,80 +3,80 @@ import type { Service, BlogPost, Testimonial, Project } from "@shared/schema";
 export const staticServices: Service[] = [
   {
     id: 1,
-    title: "Oil & Gas Engineering",
-    description: "Comprehensive training programs covering upstream, midstream, and downstream operations in the oil and gas industry.",
+    title: "Petroleum & Mining Engineering",
+    description: "Comprehensive training in drilling, reservoir engineering, safety, and production optimization for oil and gas operations and mining processes. Focus on technical, safety, and operational excellence.",
     icon: "oil-well",
     features: [
-      "Reservoir Engineering",
-      "Drilling Operations",
+      "Drilling & Reservoir Engineering",
       "Production Optimization",
-      "Safety Protocols",
-      "Environmental Compliance"
+      "Mining Operations",
+      "Safety & Risk Management",
+      "Heavy Equipment Operations"
     ]
   },
   {
     id: 2,
-    title: "Environmental Engineering",
-    description: "Sustainable engineering solutions focusing on environmental protection and resource management.",
+    title: "Energy & Sustainability",
+    description: "Training covering energy transition, green hydrogen, carbon capture, renewable energy, and environmental compliance. Addressing climate change and sustainable development.",
     icon: "leaf",
     features: [
-      "Environmental Impact Assessment",
-      "Water Treatment Systems",
-      "Air Quality Management",
-      "Waste Management",
-      "Renewable Energy Systems"
+      "Renewable Energy Systems",
+      "Energy Transition & Green Hydrogen",
+      "Carbon Capture & Low-Carbon Technologies",
+      "Environmental Compliance",
+      "Sustainable Development Projects"
     ]
   },
   {
     id: 3,
-    title: "Process Engineering",
-    description: "Advanced process design and optimization for industrial applications and manufacturing.",
+    title: "Agriculture Technology",
+    description: "Specialized agricultural engineering and management, covering modern farming techniques, precision agriculture, and sustainable food production systems.",
     icon: "recycle",
     features: [
-      "Process Design",
-      "Equipment Selection",
-      "Process Optimization",
-      "Quality Control",
-      "Cost Analysis"
+      "Precision Agriculture Systems",
+      "Smart Farming Technology",
+      "Agricultural Operations Management",
+      "Sustainable Farming Practices",
+      "Food Production Systems"
     ]
   },
   {
     id: 4,
-    title: "Project Management",
-    description: "Professional project management training for engineering projects and industrial operations.",
+    title: "Professional Development",
+    description: "Building plans and career-oriented training, empowering to improve the engineering profession in Mauritania and boost the quality and creativity of engineers.",
     icon: "users",
     features: [
-      "Project Planning",
-      "Risk Management",
-      "Team Leadership",
-      "Budget Control",
-      "Quality Assurance"
+      "Leadership Development",
+      "Project Management",
+      "Technical Skills Enhancement",
+      "Professional Certification",
+      "Career Advancement Programs"
     ]
   },
   {
     id: 5,
-    title: "Digital Engineering",
-    description: "Modern digital tools and technologies for engineering design and analysis.",
+    title: "Software Training",
+    description: "Specialized software training for engineering applications from including: PETREL, ECLIPSE, PIPESIM, OLGA, Exploration and Production software.",
     icon: "monitor",
     features: [
-      "CAD/CAM Systems",
-      "Simulation Software",
-      "Data Analytics",
-      "Digital Twin Technology",
-      "Automation Systems"
+      "PETREL Reservoir Modeling",
+      "ECLIPSE Simulation Software",
+      "PIPESIM Systems",
+      "OLGA Multiphase",
+      "Production Software"
     ]
   },
   {
     id: 6,
-    title: "Innovation & R&D",
-    description: "Research and development methodologies for engineering innovation and technology advancement.",
+    title: "Consultation Services",
+    description: "Expert consultation in petroleum, energy, design, and production covering both the organizational and technical side, alongside and strategic planning.",
     icon: "lightbulb",
     features: [
-      "Research Methodologies",
-      "Innovation Management",
-      "Technology Transfer",
-      "Patent Development",
-      "Commercialization"
+      "Technical Planning",
+      "Strategic Consulting",
+      "Risk Assessment",
+      "Process Optimization",
+      "Strategic Implementation"
     ]
   }
 ];
