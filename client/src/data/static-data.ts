@@ -29,15 +29,15 @@ export const staticServices: Service[] = [
   },
   {
     id: 3,
-    title: "Agriculture Technology",
-    description: "Specialized agricultural engineering and management, covering modern farming techniques, precision agriculture, and sustainable food production systems.",
+    title: "Environment and Waste Management",
+    description: "Comprehensive training in environmental protection, waste management, recycling technologies, environmental impact assessment, and sustainable practices for industrial and municipal waste.",
     icon: "recycle",
     features: [
-      "Precision Agriculture Systems",
-      "Smart Farming Technology",
-      "Agricultural Operations Management",
-      "Sustainable Farming Practices",
-      "Food Production Systems"
+      "Industrial Waste Management",
+      "Environmental Impact Assessment",
+      "Recycling Technologies",
+      "Hazardous Materials Handling",
+      "Sustainable Waste Practices"
     ]
   },
   {
