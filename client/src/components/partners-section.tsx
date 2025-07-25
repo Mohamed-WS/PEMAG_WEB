@@ -1,11 +1,11 @@
 const partnerLogos = [
-  { name: "SNIM", image: "/PEMAG_WEB/logos/SNIM.jpg" },
+  { name: "SNIM", image: "/PEMAG_WEB/logos/snim.jpg" },
   { name: "IDM", image: "/PEMAG_WEB/logos/IDM.jpg" },
   { name: "MEP", image: "/PEMAG_WEB/logos/MEP.jpg" },
   { name: "MEM", image: "/PEMAG_WEB/logos/MEM.jpg" },
   { name: "BSS", image: "/PEMAG_WEB/logos/BSS.jpg" },
   { name: "AMC TRAVAUX", image: "/PEMAG_WEB/logos/AMC traveaux.avif" },
-  { name: "SMH", image: "/PEMAG_WEB/logos/SMH.jpg" }
+  { name: "SMH", image: "/PEMAG_WEB/logos/smh.jpg" }
 ];
 
 export default function PartnersSection() {
