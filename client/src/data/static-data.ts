@@ -74,8 +74,8 @@ export const staticServices: Service[] = [
     features: [
       "Machine Learning & AI Applications",
       "Data Science & Analytics",
-      "Cybersecurity & Network Security",
-      "Cloud Computing & Infrastructure",
+      "Computer Programming Basics",
+      "Database Management Systems",
       "Digital Transformation Technologies"
     ]
   }
