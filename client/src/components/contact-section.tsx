@@ -167,15 +167,11 @@ export default function ContactSection() {
                   </div>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
-                      <span>Monday - Thursday</span>
+                      <span>Saturday - Thursday</span>
                       <span>8:00 AM - 6:00 PM</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Friday</span>
-                      <span>8:00 AM - 12:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday - Sunday</span>
                       <span>Closed</span>
                     </div>
                   </div>
