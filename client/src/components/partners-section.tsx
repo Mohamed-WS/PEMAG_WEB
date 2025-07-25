@@ -1,11 +1,11 @@
 const partnerLogos = [
-  { name: "SNIM", image: "/logos/snim.jpg" },
-  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/logos/IMG-20250714-WA0024.jpg" },
-  { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/logos/MEP.jpg" },
-  { name: "MINISTÈRE DE L'ENVIRONNEMENT ET DU DÉVELOPPEMENT DURABLE", image: "/logos/MEM.jpg" },
-  { name: "AMC TRAVAUX", image: "/logos/AMC traveaux.avif" },
-  { name: "BRITISH SAFETY SERVICES", image: "/logos/IMG-20250714-WA0017.jpg" },
-  { name: "SMH", image: "/logos/IMG-20250714-WA0020.jpg" }
+  { name: "SNIM", image: "/PEMAG_WEB/logos/snim.jpg" },
+  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/PEMAG_WEB/logos/IMG-20250714-WA0024.jpg" },
+  { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/PEMAG_WEB/logos/MEP.jpg" },
+  { name: "MINISTÈRE DE L'ENVIRONNEMENT ET DU DÉVELOPPEMENT DURABLE", image: "/PEMAG_WEB/logos/MEM.jpg" },
+  { name: "AMC TRAVAUX", image: "/PEMAG_WEB/logos/AMC traveaux.avif" },
+  { name: "BRITISH SAFETY SERVICES", image: "/PEMAG_WEB/logos/IMG-20250714-WA0017.jpg" },
+  { name: "SMH", image: "/PEMAG_WEB/logos/IMG-20250714-WA0020.jpg" }
 ];
 
 export default function PartnersSection() {
