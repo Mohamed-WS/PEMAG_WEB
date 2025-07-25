@@ -4,7 +4,7 @@ const partnerLogos = [
   { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/PEMAG_WEB/logos/MEP.jpg" },
   { name: "MINISTÈRE DE L'ENVIRONNEMENT ET DU DÉVELOPPEMENT DURABLE", image: "/PEMAG_WEB/logos/MEM.jpg" },
   { name: "AMC TRAVAUX", image: "/PEMAG_WEB/logos/AMC traveaux.avif" },
-  { name: "BRITISH SAFETY SERVICES", image: "/PEMAG_WEB/logos/IMG-20250714-WA0017.jpg" },
+  { name: "BSS", image: "/PEMAG_WEB/logos/IMG-20250714-WA0017.jpg" },
   { name: "SMH", image: "/PEMAG_WEB/logos/IMG-20250714-WA0020.jpg" }
 ];
 
