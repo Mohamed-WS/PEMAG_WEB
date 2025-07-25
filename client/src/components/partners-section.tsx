@@ -1,11 +1,11 @@
 const partnerLogos = [
-  { name: "SNIM", image: "/PEMAG_WEB/logos/snim.jpg" },
+  { name: "SNIM", image: "/PEMAG_WEB/logos/SNIM.jpg" },
   { name: "IDM", image: "/PEMAG_WEB/logos/IDM.jpg" },
-  { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/PEMAG_WEB/logos/MEP.jpg" },
-  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/PEMAG_WEB/logos/ministry-mines-industry.jpg" },
-  { name: "BSS", image: "/PEMAG_WEB/logos/IMG-20250714-WA0017.jpg" },
+  { name: "MEP", image: "/PEMAG_WEB/logos/MEP.jpg" },
+  { name: "MEM", image: "/PEMAG_WEB/logos/MEM.jpg" },
+  { name: "BSS", image: "/PEMAG_WEB/logos/BSS.jpg" },
   { name: "AMC TRAVAUX", image: "/PEMAG_WEB/logos/AMC traveaux.avif" },
-  { name: "SMH", image: "/PEMAG_WEB/logos/IMG-20250714-WA0020.jpg" }
+  { name: "SMH", image: "/PEMAG_WEB/logos/SMH.jpg" }
 ];
 
 export default function PartnersSection() {
