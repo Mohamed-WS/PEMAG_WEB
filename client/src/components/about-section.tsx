@@ -1,24 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Award, Users, TrendingUp, Calendar, Building, BookOpen } from "lucide-react";
-import type { Project } from "@shared/schema";
+import { Award, Users, BookOpen } from "lucide-react";
 
-const iconMap = {
-  'graduation-cap': BookOpen,
-  'award': Award,
-  'handshake': Users,
-  'building': Building,
-  'trending-up': TrendingUp,
-  'calendar': Calendar,
-  'settings': Users,
-};
+// Original PEMAG statistics
+const stats = [
+  {
+    id: 1,
+    number: 200,
+    title: "Trained Professionals",
+    icon: Users
+  },
+  {
+    id: 2,
+    number: 100,
+    title: "Completed Projects", 
+    icon: Award
+  },
+  {
+    id: 3,
+    number: 7,
+    title: "Partner Organizations",
+    icon: BookOpen
+  }
+];
 
 export default function AboutSection() {
-  const { data: projects, isLoading } = useQuery<Project[]>({
-    queryKey: ['/api/projects'],
-  });
-
-  const stats = projects?.slice(0, 4) || [];
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -64,32 +69,22 @@ export default function AboutSection() {
 
         {/* Statistics Section */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {isLoading ? (
-            // Loading skeleton
-            [...Array(4)].map((_, index) => (
-              <div key={index} className="text-center animate-pulse">
-                <div className="h-12 bg-gray-200 rounded mb-2"></div>
-                <div className="h-4 bg-gray-200 rounded"></div>
-              </div>
-            ))
-          ) : (
-            stats.map((stat) => {
-              const IconComponent = iconMap[stat.icon as keyof typeof iconMap] || Award;
-              return (
-                <div key={stat.id} className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-industrial-orange rounded-lg flex items-center justify-center">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
+          {stats.map((stat) => {
+            const IconComponent = stat.icon;
+            return (
+              <div key={stat.id} className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-industrial-orange rounded-lg flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <div className="counter" data-target={stat.completedCount}>
-                    {stat.completedCount.toLocaleString()}
-                  </div>
-                  <p className="text-industrial-steel font-semibold">{stat.title}</p>
                 </div>
-              );
-            })
-          )}
+                <div className="text-4xl font-bold text-industrial-orange mb-2">
+                  {stat.number}
+                </div>
+                <p className="text-industrial-steel font-semibold">{stat.title}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
