@@ -60,8 +60,8 @@ export default function AboutSection() {
             />
             <div className="absolute -bottom-6 -left-6 bg-industrial-navy text-white p-6 rounded-lg shadow-xl">
               <div className="text-center">
-                <p className="text-3xl font-bold text-industrial-orange">15+</p>
-                <p className="text-sm text-gray-300">Years Experience</p>
+                <p className="text-3xl font-bold text-industrial-orange">100%</p>
+                <p className="text-sm text-gray-300">Quality Training</p>
               </div>
             </div>
           </div>
