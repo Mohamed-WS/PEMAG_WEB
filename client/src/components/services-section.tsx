@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
@@ -11,7 +10,7 @@ import {
   CheckCircle,
   ArrowRight 
 } from "lucide-react";
-import type { Service } from "@shared/schema";
+import { staticServices } from "@/data/static-data";
 
 const iconMap = {
   'oil-well': Droplets,
@@ -23,9 +22,7 @@ const iconMap = {
 };
 
 export default function ServicesSection() {
-  const { data: services, isLoading, error } = useQuery<Service[]>({
-    queryKey: ['/api/services'],
-  });
+  const services = staticServices;
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -33,16 +30,6 @@ export default function ServicesSection() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  if (error) {
-    return (
-      <section id="services" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-red-600">Unable to load services. Please try again later.</p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="services" className="py-20 bg-gray-50">
@@ -54,22 +41,8 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {isLoading ? (
-          <div className="grid lg:grid-cols-3 gap-8">
-            {[...Array(6)].map((_, index) => (
-              <Card key={index} className="animate-pulse">
-                <div className="h-64 bg-gray-200"></div>
-                <CardContent className="p-8">
-                  <div className="h-4 bg-gray-200 rounded mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <div className="grid lg:grid-cols-3 gap-8">
-            {services?.map((service) => {
+        <div className="grid lg:grid-cols-3 gap-8">
+          {services.map((service) => {
               const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Lightbulb;
               return (
                 <Card 
@@ -116,8 +89,7 @@ export default function ServicesSection() {
                 </Card>
               );
             })}
-          </div>
-        )}
+        </div>
 
         <div className="text-center mt-12">
           <Button className="btn-primary" onClick={scrollToContact}>

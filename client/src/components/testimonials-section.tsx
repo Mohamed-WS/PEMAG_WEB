@@ -1,8 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-import type { Testimonial } from "@shared/schema";
+import { staticTestimonials } from "@/data/static-data";
 
 const partnerLogos = [
   { name: "SNIM", image: "/logos/snim.jpg" },
@@ -15,19 +14,7 @@ const partnerLogos = [
 ];
 
 export default function TestimonialsSection() {
-  const { data: testimonials, isLoading, error } = useQuery<Testimonial[]>({
-    queryKey: ['/api/testimonials'],
-  });
-
-  if (error) {
-    return (
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-red-600">Unable to load testimonials. Please try again later.</p>
-        </div>
-      </section>
-    );
-  }
+  const testimonials = staticTestimonials;
 
   return (
     <section className="py-20 bg-gray-50">
@@ -39,28 +26,8 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {isLoading ? (
-          <div className="grid lg:grid-cols-3 gap-8">
-            {[...Array(6)].map((_, index) => (
-              <Card key={index} className="animate-pulse">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-gray-200 rounded-full mr-4"></div>
-                    <div>
-                      <div className="h-4 bg-gray-200 rounded mb-2 w-24"></div>
-                      <div className="h-4 bg-gray-200 rounded w-32"></div>
-                    </div>
-                  </div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <div className="grid lg:grid-cols-3 gap-8">
-            {testimonials?.map((testimonial) => (
+        <div className="grid lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
               <Card key={testimonial.id} className="card-elevated">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
@@ -86,8 +53,7 @@ export default function TestimonialsSection() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        )}
+        </div>
 
         {/* Partner Logos Section */}
         <div className="mt-16 bg-industrial-navy rounded-xl p-8 text-white">
