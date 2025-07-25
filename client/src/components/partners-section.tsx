@@ -1,11 +1,11 @@
 const partnerLogos = [
   { name: "SNIM", image: "/logos/snim.jpg" },
-  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/logos/idm-industries.jpg" },
+  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/logos/IMG-20250714-WA0024.jpg" },
   { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/logos/MEP.jpg" },
-  { name: "AMC TRAVAUX", image: "/logos/amc-travaux.avif" },
-  { name: "BRITISH SAFETY SERVICES", image: "/logos/ministry-mines-industry.jpg" },
-  { name: "IDM INDUSTRIES", image: "/logos/british-safety-services.jpg" },
-  { name: "SMH", image: "/logos/Logo-SMH.png" }
+  { name: "MINISTÈRE DE L'ENVIRONNEMENT ET DU DÉVELOPPEMENT DURABLE", image: "/logos/MEM.jpg" },
+  { name: "AMC TRAVAUX", image: "/logos/AMC traveaux.avif" },
+  { name: "BRITISH SAFETY SERVICES", image: "/logos/IMG-20250714-WA0017.jpg" },
+  { name: "SMH", image: "/logos/IMG-20250714-WA0020.jpg" }
 ];
 
 export default function PartnersSection() {
@@ -17,7 +17,8 @@ export default function PartnersSection() {
           <div className="text-center">
             <h3 className="heading-tertiary mb-8">Trusted by Industry Leaders</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-              {partnerLogos.map((partner, index) => (
+              {/* First 4 logos */}
+              {partnerLogos.slice(0, 4).map((partner, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-xl p-6 h-24 flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-lg border border-gray-200 overflow-hidden"
@@ -25,13 +26,25 @@ export default function PartnersSection() {
                   <img
                     src={partner.image}
                     alt={partner.name}
-                    className={`max-w-full object-contain filter brightness-110 contrast-110 ${
-                      partner.name === "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE" 
-                        ? "max-h-20 scale-110" 
-                        : partner.name === "MINISTÈRE DES MINES ET DE L'INDUSTRIE"
-                        ? "max-h-20 scale-110"
-                        : "max-h-16"
-                    }`}
+                    className="max-w-full max-h-16 object-contain filter brightness-110 contrast-110"
+                    title={partner.name}
+                    style={{ mixBlendMode: 'multiply' }}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Last 3 logos - centered */}
+            <div className="grid grid-cols-3 gap-6 items-center mt-6 max-w-2xl mx-auto">
+              {partnerLogos.slice(4).map((partner, index) => (
+                <div
+                  key={index + 4}
+                  className="bg-white rounded-xl p-6 h-24 flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-lg border border-gray-200 overflow-hidden"
+                >
+                  <img
+                    src={partner.image}
+                    alt={partner.name}
+                    className="max-w-full max-h-16 object-contain filter brightness-110 contrast-110"
                     title={partner.name}
                     style={{ mixBlendMode: 'multiply' }}
                   />
