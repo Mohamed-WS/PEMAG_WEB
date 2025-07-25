@@ -2,8 +2,8 @@ const partnerLogos = [
   { name: "SNIM", image: "/PEMAG_WEB/logos/snim.jpg" },
   { name: "IDM", image: "/PEMAG_WEB/logos/IDM.jpg" },
   { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/PEMAG_WEB/logos/MEP.jpg" },
-  { name: "BSS", image: "/PEMAG_WEB/logos/IMG-20250714-WA0017.jpg" },
   { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/PEMAG_WEB/logos/ministry-mines-industry.jpg" },
+  { name: "BSS", image: "/PEMAG_WEB/logos/IMG-20250714-WA0017.jpg" },
   { name: "AMC TRAVAUX", image: "/PEMAG_WEB/logos/AMC traveaux.avif" },
   { name: "SMH", image: "/PEMAG_WEB/logos/IMG-20250714-WA0020.jpg" }
 ];
