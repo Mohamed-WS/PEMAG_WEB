@@ -52,7 +52,7 @@ export default function ServicesSection() {
                   <div className="relative h-64 overflow-hidden">
                     {/* Background Image */}
                     <img 
-                      src={`/images/services/${service.icon}.jpg`}
+                      src={`${import.meta.env.BASE_URL}images/services/${service.icon}.jpg`}
                       alt={service.title}
                       className="absolute inset-0 w-full h-full object-cover z-0"
                       onError={(e) => {
