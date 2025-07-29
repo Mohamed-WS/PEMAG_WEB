@@ -49,18 +49,28 @@ export default function ServicesSection() {
                   key={service.id} 
                   className="service-card card-elevated group overflow-hidden"
                 >
-                  <div className="relative h-64 bg-gradient-to-br from-industrial-navy to-industrial-steel overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     {/* Background Image */}
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                      style={{
-                        backgroundImage: `url('/images/services/${service.icon}.jpg')`
+                    <img 
+                      src={`/images/services/${service.icon}.jpg`}
+                      alt={service.title}
+                      className="absolute inset-0 w-full h-full object-cover z-0"
+                      onError={(e) => {
+                        // Fallback to gradient background if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.classList.add('bg-gradient-to-br', 'from-industrial-navy', 'to-industrial-steel');
+                        }
                       }}
-                    ></div>
+                    />
+                    {/* Fallback gradient background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-industrial-navy to-industrial-steel"></div>
                     {/* Dark overlay for better icon visibility */}
                     <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                     {/* Icon with enhanced visibility */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
                       <div className="bg-industrial-orange bg-opacity-90 rounded-full p-4 shadow-lg">
                         <IconComponent className="w-16 h-16 text-white" />
                       </div>
