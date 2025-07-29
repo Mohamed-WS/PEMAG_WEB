@@ -151,26 +151,26 @@ export const staticTestimonials: Testimonial[] = [
 export const staticBlogPosts: BlogPost[] = [
   {
     id: 1,
-    title: "The Future of Engineering Education in Mauritania",
-    description: "Exploring how modern engineering education is evolving to meet the demands of Mauritania's growing industrial sector.",
-    category: "Education",
-    image: "/logos/MEP.jpg",
-    createdAt: new Date("2024-01-15")
+    title: "PETREL Software Certified Training",
+    description: "Comprehensive PETREL software training for reservoir modeling and geological analysis. Join our certified training program to master industry-standard petroleum engineering software.",
+    category: "Software Training",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    createdAt: new Date("2025-08-10")
   },
   {
     id: 2,
-    title: "Sustainable Mining Practices in West Africa",
-    description: "Best practices for sustainable mining operations and environmental protection in the West African region.",
-    category: "Environment",
-    image: "/logos/snim.jpg",
-    createdAt: new Date("2024-01-10")
+    title: "IOSH Managing Safely",
+    description: "IOSH Managing Safely certification course designed for managers and supervisors. Learn essential health and safety management skills for workplace safety excellence.",
+    category: "Safety Training",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    createdAt: new Date("2025-08-18")
   },
   {
     id: 3,
-    title: "Digital Transformation in Industrial Operations",
-    description: "How digital technologies are revolutionizing industrial operations and the skills needed to adapt.",
-    category: "Technology",
-    image: "/logos/idm-industries.jpg",
-    createdAt: new Date("2024-01-05")
+    title: "Firefighting and H2S Courses",
+    description: "Professional firefighting and hydrogen sulfide safety training. Essential safety courses for oil & gas industry professionals working in hazardous environments.",
+    category: "Safety Training",
+    image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    createdAt: new Date("2025-08-15")
   }
 ];
