@@ -42,16 +42,16 @@ export const staticServices: Service[] = [
   },
   {
     id: 4,
-    title: "Agriculture & Technology Services",
-    description: "Comprehensive training in modern agricultural technologies, precision farming, sustainable agriculture practices, and innovative farming solutions to enhance food security and agricultural productivity in Mauritania.",
+    title: "Agricultural Systems & Tech",
+    description: "Comprehensive training in modern agricultural systems, precision farming technologies, sustainable agriculture practices, and innovative farming solutions to enhance food security and agricultural productivity in Mauritania.",
     icon: "users",
     features: [
-      "Precision Agriculture & Smart Farming",
-      "Irrigation Systems & Water Management",
-      "Crop Management & Soil Science",
-      "Agricultural Technology Integration",
-      "Sustainable Farming Practices",
-      "Food Security & Production Optimization"
+      "Smart Farming Systems & IoT",
+      "Precision Agriculture Technology",
+      "Automated Irrigation & Water Tech",
+      "Agricultural Data Analytics",
+      "Crop Monitoring Systems",
+      "Sustainable Tech Integration"
     ]
   },
   {
