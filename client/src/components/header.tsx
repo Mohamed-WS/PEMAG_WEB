@@ -43,6 +43,11 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
+            <img 
+              src={`${import.meta.env.BASE_URL}logo.svg`} 
+              alt="PEMAG Logo" 
+              className="w-12 h-12 mr-3"
+            />
             <div className="text-2xl font-bold">
               <span className="text-industrial-orange">PEMAG</span>
               <span className="text-sm font-normal block text-gray-300">Engineering Excellence</span>
