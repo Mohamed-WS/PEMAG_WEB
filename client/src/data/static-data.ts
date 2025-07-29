@@ -42,15 +42,16 @@ export const staticServices: Service[] = [
   },
   {
     id: 4,
-    title: "Professional Development",
-    description: "Building plans and career-oriented training, empowering to improve the engineering profession in Mauritania and boost the quality and creativity of engineers.",
+    title: "Agriculture & Technology Services",
+    description: "Comprehensive training in modern agricultural technologies, precision farming, sustainable agriculture practices, and innovative farming solutions to enhance food security and agricultural productivity in Mauritania.",
     icon: "users",
     features: [
-      "Leadership Development",
-      "Project Management",
-      "Technical Skills Enhancement",
-      "Professional Certification",
-      "Career Advancement Programs"
+      "Precision Agriculture & Smart Farming",
+      "Irrigation Systems & Water Management",
+      "Crop Management & Soil Science",
+      "Agricultural Technology Integration",
+      "Sustainable Farming Practices",
+      "Food Security & Production Optimization"
     ]
   },
   {
