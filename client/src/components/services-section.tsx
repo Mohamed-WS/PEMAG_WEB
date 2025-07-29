@@ -49,10 +49,21 @@ export default function ServicesSection() {
                   key={service.id} 
                   className="service-card card-elevated group overflow-hidden"
                 >
-                  <div className="relative h-64 bg-gradient-to-br from-industrial-navy to-industrial-steel">
-                    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <div className="relative h-64 bg-gradient-to-br from-industrial-navy to-industrial-steel overflow-hidden">
+                    {/* Background Image */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                      style={{
+                        backgroundImage: `url('/images/services/${service.icon}.jpg')`
+                      }}
+                    ></div>
+                    {/* Dark overlay for better icon visibility */}
+                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                    {/* Icon with enhanced visibility */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <IconComponent className="w-16 h-16 text-white" />
+                      <div className="bg-industrial-orange bg-opacity-90 rounded-full p-4 shadow-lg">
+                        <IconComponent className="w-16 h-16 text-white" />
+                      </div>
                     </div>
                   </div>
                   <CardContent className="p-8">
