@@ -154,7 +154,7 @@ export const staticBlogPosts: BlogPost[] = [
     title: "PETREL Software Certified Training",
     description: "Comprehensive PETREL software training for reservoir modeling and geological analysis. Master industry-standard petroleum engineering software with hands-on practical sessions and expert instruction.",
     category: "Software Training",
-    image: "/PEMAG_WEB/images/petrel.jpg",
+    image: "/images/petrel.jpg",
     createdAt: new Date("2025-08-10")
   },
   {
@@ -162,7 +162,7 @@ export const staticBlogPosts: BlogPost[] = [
     title: "IOSH Managing Safely",
     description: "IOSH Managing Safely certification course designed for managers and supervisors. Learn essential health and safety management skills to create safer workplaces and ensure regulatory compliance.",
     category: "Safety Training",
-    image: "/PEMAG_WEB/images/IOSH.jpg",
+    image: "/images/IOSH.jpg",
     createdAt: new Date("2025-08-18")
   },
   {
@@ -170,7 +170,7 @@ export const staticBlogPosts: BlogPost[] = [
     title: "Firefighting and H2S Courses",
     description: "Professional firefighting and hydrogen sulfide safety training courses. Essential safety training for oil & gas industry professionals working in hazardous environments with emergency response protocols.",
     category: "Safety Training",
-    image: "/PEMAG_WEB/images/firefighting.jpeg",
+    image: "/images/firefighting.jpeg",
     createdAt: new Date("2025-08-15")
   }
 ];
