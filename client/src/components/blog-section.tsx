@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight } from "lucide-react";
 import { staticBlogPosts } from "@/data/static-data";
 
@@ -75,12 +74,9 @@ export default function BlogSection() {
                 <CardContent className="p-6">
                   <CardHeader className="p-0 mb-4">
                     <div className="flex items-center justify-between mb-3">
-                      <Badge 
-                        variant="secondary"
-                        className="bg-industrial-orange text-white hover:bg-orange-600"
-                      >
+                      <span className="inline-flex items-center rounded-full bg-industrial-orange text-white px-3 py-1 text-xs font-semibold">
                         {post.category}
-                      </Badge>
+                      </span>
                       <span className="text-gray-500 text-sm flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
                         {formatDate(post.createdAt)}

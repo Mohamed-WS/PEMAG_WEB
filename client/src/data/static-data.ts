@@ -1,4 +1,4 @@
-import type { Service, BlogPost, Testimonial, Project } from "@shared/schema";
+import type { Service, BlogPost, Testimonial, Project } from "@/types";
 
 export const staticServices: Service[] = [
   {
