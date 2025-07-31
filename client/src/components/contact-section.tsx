@@ -252,7 +252,6 @@ export default function ContactSection() {
                         <SelectItem value="agricultural-systems">Agricultural Systems & Tech</SelectItem>
                         <SelectItem value="software-training">Software Training</SelectItem>
                         <SelectItem value="ai-it">Artificial Intelligence and IT</SelectItem>
-                        <SelectItem value="custom-training">Custom Training Program</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
