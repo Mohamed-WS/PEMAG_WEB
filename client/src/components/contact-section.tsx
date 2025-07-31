@@ -30,6 +30,8 @@ export default function ContactSection() {
   });
 
   const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,41 +44,56 @@ export default function ContactSection() {
       return;
     }
 
-    // For GitHub Pages deployment, use Formspree or similar service
-    // For now, we'll use a simple mailto link as fallback
-    const subject = `Contact Form Submission - ${contactForm.firstName} ${contactForm.lastName}`;
-    const body = `
-Name: ${contactForm.firstName} ${contactForm.lastName}
-Email: ${contactForm.email}
-Phone: ${contactForm.phone || 'Not provided'}
-Service Interest: ${contactForm.serviceInterest || 'Not specified'}
+    setIsSubmitting(true);
+    
+    try {
+      // Using Formspree for form handling
+      const response = await fetch('https://formspree.io/f/xdkogqpb', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${contactForm.firstName} ${contactForm.lastName}`,
+          email: contactForm.email,
+          phone: contactForm.phone,
+          serviceInterest: contactForm.serviceInterest,
+          message: contactForm.message,
+          _replyto: contactForm.email,
+          _subject: `New Contact Form Submission - ${contactForm.firstName} ${contactForm.lastName}`,
+        }),
+      });
 
-Message:
-${contactForm.message}
-    `;
-    
-    const mailtoLink = `mailto:contact@pemaginnovations.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Try to open email client
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Email Client Opened",
-      description: "Please send the email from your email client to complete the submission.",
-    });
-    
-    // Clear form
-    setContactForm({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      serviceInterest: "",
-      message: ""
-    });
+      if (response.ok) {
+        toast({
+          title: "Message Sent Successfully",
+          description: "Thank you for your message! We will contact you soon.",
+        });
+        
+        // Clear form
+        setContactForm({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          serviceInterest: "",
+          message: ""
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newsletterEmail) {
       toast({
@@ -87,19 +104,40 @@ ${contactForm.message}
       return;
     }
     
-    // For GitHub Pages deployment, use mailto as fallback
-    const subject = `Newsletter Subscription Request`;
-    const body = `Please add ${newsletterEmail} to the PEMAG Innovations newsletter.`;
-    const mailtoLink = `mailto:contact@pemaginnovations.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsSubscribing(true);
     
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Email Client Opened",
-      description: "Please send the email to complete your newsletter subscription.",
-    });
-    
-    setNewsletterEmail("");
+    try {
+      // Using Formspree for newsletter signup
+      const response = await fetch('https://formspree.io/f/xdkogqpb', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: newsletterEmail,
+          _subject: `Newsletter Subscription - ${newsletterEmail}`,
+          message: `Newsletter subscription request from: ${newsletterEmail}`,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Subscription Successful",
+          description: "Thank you for subscribing to our newsletter!",
+        });
+        setNewsletterEmail("");
+      } else {
+        throw new Error('Failed to subscribe');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to subscribe. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   const updateContactForm = (field: keyof ContactForm, value: string) => {
@@ -273,8 +311,9 @@ ${contactForm.message}
                   <Button 
                     type="submit" 
                     className="w-full btn-primary"
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
@@ -304,8 +343,9 @@ ${contactForm.message}
                 <Button 
                   type="submit" 
                   className="bg-industrial-orange text-white hover:bg-orange-600"
+                  disabled={isSubscribing}
                 >
-                  Subscribe
+                  {isSubscribing ? "Subscribing..." : "Subscribe"}
                 </Button>
               </div>
               <p className="text-sm text-gray-400 mt-3">
