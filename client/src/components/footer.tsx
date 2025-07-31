@@ -100,12 +100,54 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Petroleum Engineering</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Mining Operations</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Energy Transition</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Green Technologies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Agriculture Technology</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Software Training</a></li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Petroleum & Mining Engineering
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Energy & Sustainability
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Environment and Waste Management
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Agricultural Systems & Tech
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Software Training
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Artificial Intelligence and IT
+                </button>
+              </li>
             </ul>
           </div>
 
