@@ -248,7 +248,10 @@ export default function ContactSection() {
                       <SelectContent>
                         <SelectItem value="petroleum-mining">Petroleum & Mining Engineering</SelectItem>
                         <SelectItem value="energy-sustainability">Energy & Sustainability</SelectItem>
-                        <SelectItem value="agriculture-technology">Agriculture Technology</SelectItem>
+                        <SelectItem value="environment-waste">Environment and Waste Management</SelectItem>
+                        <SelectItem value="agricultural-systems">Agricultural Systems & Tech</SelectItem>
+                        <SelectItem value="software-training">Software Training</SelectItem>
+                        <SelectItem value="ai-it">Artificial Intelligence and IT</SelectItem>
                         <SelectItem value="custom-training">Custom Training Program</SelectItem>
                       </SelectContent>
                     </Select>
