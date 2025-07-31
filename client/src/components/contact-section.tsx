@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,14 +7,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-import type { InsertContactSubmission, InsertNewsletterSubscription } from "@shared/schema";
+
+type ContactForm = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  serviceInterest: string;
+  message: string;
+};
 
 export default function ContactSection() {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
   
-  const [contactForm, setContactForm] = useState<InsertContactSubmission>({
+  const [contactForm, setContactForm] = useState<ContactForm>({
     firstName: "",
     lastName: "",
     email: "",
@@ -26,56 +31,7 @@ export default function ContactSection() {
 
   const [newsletterEmail, setNewsletterEmail] = useState("");
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactSubmission) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message Sent Successfully",
-        description: "Thank you for your message! We will contact you soon.",
-      });
-      setContactForm({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        serviceInterest: "",
-        message: ""
-      });
-    },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const newsletterMutation = useMutation({
-    mutationFn: async (data: InsertNewsletterSubscription) => {
-      const response = await apiRequest("POST", "/api/newsletter", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Subscription Successful",
-        description: "Thank you for subscribing to our newsletter!",
-      });
-      setNewsletterEmail("");
-    },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: "Failed to subscribe. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactForm.firstName || !contactForm.lastName || !contactForm.email || !contactForm.message) {
       toast({
@@ -85,7 +41,39 @@ export default function ContactSection() {
       });
       return;
     }
-    contactMutation.mutate(contactForm);
+
+    // For GitHub Pages deployment, use Formspree or similar service
+    // For now, we'll use a simple mailto link as fallback
+    const subject = `Contact Form Submission - ${contactForm.firstName} ${contactForm.lastName}`;
+    const body = `
+Name: ${contactForm.firstName} ${contactForm.lastName}
+Email: ${contactForm.email}
+Phone: ${contactForm.phone || 'Not provided'}
+Service Interest: ${contactForm.serviceInterest || 'Not specified'}
+
+Message:
+${contactForm.message}
+    `;
+    
+    const mailtoLink = `mailto:contact@pemaginnovations.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Try to open email client
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "Email Client Opened",
+      description: "Please send the email from your email client to complete the submission.",
+    });
+    
+    // Clear form
+    setContactForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      serviceInterest: "",
+      message: ""
+    });
   };
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -98,10 +86,23 @@ export default function ContactSection() {
       });
       return;
     }
-    newsletterMutation.mutate({ email: newsletterEmail });
+    
+    // For GitHub Pages deployment, use mailto as fallback
+    const subject = `Newsletter Subscription Request`;
+    const body = `Please add ${newsletterEmail} to the PEMAG Innovations newsletter.`;
+    const mailtoLink = `mailto:contact@pemaginnovations.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "Email Client Opened",
+      description: "Please send the email to complete your newsletter subscription.",
+    });
+    
+    setNewsletterEmail("");
   };
 
-  const updateContactForm = (field: keyof InsertContactSubmission, value: string) => {
+  const updateContactForm = (field: keyof ContactForm, value: string) => {
     setContactForm(prev => ({ ...prev, [field]: value }));
   };
 
@@ -272,9 +273,8 @@ export default function ContactSection() {
                   <Button 
                     type="submit" 
                     className="w-full btn-primary"
-                    disabled={contactMutation.isPending}
                   >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
+                    Send Message
                   </Button>
                 </form>
               </CardContent>
@@ -304,9 +304,8 @@ export default function ContactSection() {
                 <Button 
                   type="submit" 
                   className="bg-industrial-orange text-white hover:bg-orange-600"
-                  disabled={newsletterMutation.isPending}
                 >
-                  {newsletterMutation.isPending ? "..." : "Subscribe"}
+                  Subscribe
                 </Button>
               </div>
               <p className="text-sm text-gray-400 mt-3">

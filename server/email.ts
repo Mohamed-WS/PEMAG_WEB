@@ -1,6 +1,11 @@
 import nodemailer from 'nodemailer';
 import type { InsertContactSubmission, InsertNewsletterSubscription } from '@shared/schema';
 
+// Check if email is configured
+const isEmailConfigured = () => {
+  return process.env.EMAIL_USER && process.env.EMAIL_PASSWORD;
+};
+
 // Create email transporter
 const createTransporter = () => {
   // For production, you'll need to configure with your email provider
@@ -28,6 +33,12 @@ const getServiceLabel = (value: string) => {
 };
 
 export const sendContactNotification = async (submission: InsertContactSubmission) => {
+  // Skip email if not configured (for GitHub Pages deployment)
+  if (!isEmailConfigured()) {
+    console.log('Email not configured, skipping notification');
+    return;
+  }
+
   try {
     const transporter = createTransporter();
     
@@ -129,6 +140,12 @@ This email was sent from the PEMAG Innovations contact form at pemaginnovations.
 };
 
 export const sendNewsletterNotification = async (subscription: InsertNewsletterSubscription) => {
+  // Skip email if not configured (for GitHub Pages deployment)
+  if (!isEmailConfigured()) {
+    console.log('Email not configured, skipping notification');
+    return;
+  }
+
   try {
     const transporter = createTransporter();
     
