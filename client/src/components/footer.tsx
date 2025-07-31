@@ -26,7 +26,9 @@ export default function Footer() {
 
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.facebook.com/profile.php?id=61565690912738" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-industrial-orange transition-colors"
                 aria-label="Facebook"
               >
