@@ -170,7 +170,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-industrial-orange mr-3" />
-                <p className="text-gray-400">pemaginnovations@gmail.com</p>
+                <p className="text-gray-400">contact@pemaginnovations.org</p>
               </div>
               <div className="flex items-center">
                 <Clock className="w-5 h-5 text-industrial-orange mr-3" />

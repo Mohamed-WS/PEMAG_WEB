@@ -154,7 +154,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-industrial-navy">Email</h4>
-                    <p className="text-gray-600">pemaginnovations@gmail.com</p>
+                    <p className="text-gray-600">contact@pemaginnovations.org</p>
                   </div>
                 </div>
               </div>
