@@ -46,7 +46,7 @@ export default function Header() {
             <img 
               src={`${import.meta.env.BASE_URL}logo.svg`} 
               alt="PEMAG Logo" 
-              className="w-12 h-12 mr-3"
+              className="w-16 h-16 mr-3"
             />
             <div className="text-2xl font-bold">
               <span className="text-industrial-orange">PEMAG</span>
