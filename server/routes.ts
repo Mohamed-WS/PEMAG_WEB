@@ -76,6 +76,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin routes - Get contact submissions
+  app.get("/api/admin/contact-submissions", async (req, res) => {
+    try {
+      // Simple password check - in production, use proper authentication
+      const authHeader = req.headers.authorization;
+      if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'admin123'}`) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+      
+      const submissions = await storage.getContactSubmissions();
+      res.json(submissions);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch contact submissions" });
+    }
+  });
+
+  // Admin routes - Get newsletter subscriptions
+  app.get("/api/admin/newsletter-subscriptions", async (req, res) => {
+    try {
+      // Simple password check - in production, use proper authentication
+      const authHeader = req.headers.authorization;
+      if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'admin123'}`) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+      
+      const subscriptions = await storage.getNewsletterSubscriptions();
+      res.json(subscriptions);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch newsletter subscriptions" });
+    }
+  });
+
 
 
   const httpServer = createServer(app);
