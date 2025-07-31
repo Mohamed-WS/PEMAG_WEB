@@ -75,7 +75,12 @@ export default function ProjectsSection() {
                 <div className="w-16 h-16 bg-industrial-orange rounded-lg mx-auto mb-4 flex items-center justify-center">
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-industrial-orange mb-2">{achievement.completedCount}+</h3>
+                <h3 className="text-2xl font-bold text-industrial-orange mb-2">
+                  {achievement.id === 1 ? "Leading" : 
+                   achievement.id === 2 ? "Sustainable" : 
+                   achievement.id === 3 ? "Comprehensive" : 
+                   "Innovative"}
+                </h3>
                 <h4 className="text-lg font-semibold text-white mb-2">{achievement.title}</h4>
                 <p className="text-gray-300 text-sm">{achievement.description}</p>
               </div>
