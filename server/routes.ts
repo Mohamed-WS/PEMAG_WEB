@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import path from "path";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema, insertNewsletterSubscriptionSchema } from "@shared/schema";
+import { sendContactNotification, sendNewsletterNotification } from "./email";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -51,6 +52,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactSubmissionSchema.parse(req.body);
       const submission = await storage.createContactSubmission(validatedData);
+      
+      // Send email notification (don't wait for it to complete)
+      sendContactNotification(validatedData).catch(console.error);
+      
       res.json({ message: "Contact submission received successfully", submission });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -66,6 +71,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertNewsletterSubscriptionSchema.parse(req.body);
       const subscription = await storage.createNewsletterSubscription(validatedData);
+      
+      // Send email notification (don't wait for it to complete)
+      sendNewsletterNotification(validatedData).catch(console.error);
+      
       res.json({ message: "Newsletter subscription successful", subscription });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -76,37 +85,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Admin routes - Get contact submissions
-  app.get("/api/admin/contact-submissions", async (req, res) => {
-    try {
-      // Simple password check - in production, use proper authentication
-      const authHeader = req.headers.authorization;
-      if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'admin123'}`) {
-        return res.status(401).json({ message: "Unauthorized" });
-      }
-      
-      const submissions = await storage.getContactSubmissions();
-      res.json(submissions);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch contact submissions" });
-    }
-  });
 
-  // Admin routes - Get newsletter subscriptions
-  app.get("/api/admin/newsletter-subscriptions", async (req, res) => {
-    try {
-      // Simple password check - in production, use proper authentication
-      const authHeader = req.headers.authorization;
-      if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_PASSWORD || 'admin123'}`) {
-        return res.status(401).json({ message: "Unauthorized" });
-      }
-      
-      const subscriptions = await storage.getNewsletterSubscriptions();
-      res.json(subscriptions);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch newsletter subscriptions" });
-    }
-  });
 
 
 
